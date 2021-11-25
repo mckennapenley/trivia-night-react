@@ -1,8 +1,11 @@
-import React, { useState} from "react"
+import React, { useState } from "react"
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+
 
 const NewGameForm = (props) =>{
    const [game, setGame] = useState()
+   const [toNextQuestion, setToNextQuestion] = useState("false")
 
 
   // Modify text in game
@@ -12,12 +15,16 @@ const NewGameForm = (props) =>{
 
   // Create a game
   const handleSubmit = () => {
-    axios.post("http://localhost:3000/api/games/start_game", { game } )
-     .then(
+    axios.post("http://localhost:3000/api/games/start_game", { game } ).then(
+      setToNextQuestion("true")
     )
   }
 
+  if (toNextQuestion) {
+    return <Redirect to='/question' />
+  }
 
+ 
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -47,5 +54,6 @@ const NewGameForm = (props) =>{
     </div>
   )
 }
+
 
 export default NewGameForm

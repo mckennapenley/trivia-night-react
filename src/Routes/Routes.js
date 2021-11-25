@@ -4,6 +4,7 @@ import Home from "../Pages/Home";
 import Nav from "../Pages/Nav";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
+import StartGame from "../components/StartGame/StartGame";
 
 const Routes = ({ user, setUser }) => {
   return (
@@ -19,6 +20,7 @@ const Routes = ({ user, setUser }) => {
                 <Signup {...props} user={user} setUser={setUser} />
               )}
             />
+            <Route exact path="/game" render={(props) => (<StartGame {...props} /> )} />
             <Route
               exact
               path="/login"

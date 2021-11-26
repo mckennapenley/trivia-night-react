@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const NewGameForm = (props) =>{
    const [game, setGame] = useState()
-   const [toNextQuestion, setToNextQuestion] = useState("false")
+   const [toNextQuestion, setToNextQuestion] = useState(false)
 
 
   // Modify text in game
@@ -14,10 +14,19 @@ const NewGameForm = (props) =>{
   }
 
   // Create a game
-  const handleSubmit = () => {
-    axios.post("http://localhost:3000/api/games/start_game", { game } ).then(
-      setToNextQuestion("true")
-    )
+  // const handleSubmit = () => {
+  //   axios.post("http://localhost:3000/api/games/start_game", { game } )
+  //   .then(() => setToNextQuestion(true))
+  // }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    axios.post("http://localhost:3000/api/games/start_game", { game } )
+      .then((response) => {
+        console.log(response);
+        setToNextQuestion(true)
+      })
   }
 
   if (toNextQuestion) {

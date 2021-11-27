@@ -22,7 +22,7 @@ const Routes = ({ user, setUser }) => {
               )}
             />
             <Route exact path="/game" render={(props) => (<StartGame {...props} /> )} />
-            <Route exact path="/question" render={(props) => ( <Question {...props}  /> )} />
+            <Route path="/game/:game_id/question/:order" render={(props) => ( <Question {...props}  /> )} />
             <Route
               exact
               path="/login"

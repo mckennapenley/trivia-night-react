@@ -5,32 +5,39 @@ import axios from 'axios'
 
 const NewGameForm = (props) =>{
    const [game, setGame] = useState()
+   const [gameId, setGameId] = useState()
+   const [questionQty, setQuestionQty] = useState()
    const [toNextQuestion, setToNextQuestion] = useState(false)
+  
 
 
-  // Modify text in game
+
   const handleChange = (e) => {
     setGame(Object.assign({}, game, {[e.target.name]: e.target.value}))
   }
 
-  // Create a game
-  // const handleSubmit = () => {
-  //   axios.post("http://localhost:3000/api/games/start_game", { game } )
-  //   .then(() => setToNextQuestion(true))
-  // }
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     axios.post("http://localhost:3000/api/games/start_game", { game } )
       .then((response) => {
-        console.log(response);
+        setGameId(response.data.id)
+        setQuestionQty(response.data.question_quantity)
         setToNextQuestion(true)
       })
   }
 
   if (toNextQuestion) {
-    return <Redirect to='/question' />
+    // console.log(`to next q: /game/${gameId}/question/1`)
+    return <Redirect 
+      to={{
+        pathname: `/game/${gameId}/question/1`,
+        state: {question_quantity: questionQty} 
+      }}
+    />
+    
   }
 
  

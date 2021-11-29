@@ -15,10 +15,10 @@ const Question = (props) => {
   const [game, setGame] = useState({});
   const nextQuestionOrder = questionOrder + 1;
 
-  const [toNextQuestion, setToNextQuestion] = useState(false);
+  const [displayEndGame, setDisplayEndGame] = useState(false);
+  const [questionQuantity, setQuestionQuantity] = useState();
 
   const game_id = props.match.params.game_id;
-  const question_quantity = game?.question_quantity;
 
   const htmlDecode = (input) => {
     return he.decode(input);
@@ -36,7 +36,6 @@ const Question = (props) => {
 
         setPrompt(prompt);
         setAnswer(answer);
-        // setQuestionId(response.data.id)
       });
   }, [game_id, questionOrder]);
 
@@ -46,13 +45,22 @@ const Question = (props) => {
       .then((response) => {
         setTeams(response.data.teams);
         setGame(response.data.game);
+        setQuestionQuantity(response.data.game.question_quantity);
       });
   }, []);
 
-  const handleClick = () => {
-    if (questionOrder < question_quantity) {
-      setQuestionOrder(questionOrder + 1);
+  useEffect(() => {
+    if (questionOrder === questionQuantity) {
+      setDisplayEndGame(true);
     }
+  }, [questionQuantity]);
+
+  const handleClick = () => {
+    if (nextQuestionOrder === questionQuantity) {
+      setDisplayEndGame(true);
+    }
+
+    setQuestionOrder(questionOrder + 1);
   };
 
   const handleCorrectResponse = (event) => {
@@ -102,15 +110,18 @@ const Question = (props) => {
           </div>
         );
       })}
-      {/* if questionOrder is < question quantity then show next question */}
-      {/* <button onClick={handleClick}>Next Question</button> */}
-      <Link
-        onClick={handleClick}
-        to={`/game/${game_id}/question/${nextQuestionOrder}`}
-      >
-        Next Question
-      </Link>
-      {/* If questionOrder >= question quantity then show finish game which hits the games#end_game endpoint*/}
+      {displayEndGame ? (
+        <Link onClick={handleClick} to={`/game/${game_id}/end_game`}>
+          End Game
+        </Link>
+      ) : (
+        <Link
+          onClick={handleClick}
+          to={`/game/${game_id}/question/${nextQuestionOrder}`}
+        >
+          Next Question
+        </Link>
+      )}
     </div>
   );
 };

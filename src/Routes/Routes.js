@@ -6,6 +6,7 @@ import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import StartGame from "../components/StartGame/StartGame";
 import Question from "../components/Question";
+import Results from "../components/Results";
 
 const Routes = ({ user, setUser }) => {
   return (
@@ -21,8 +22,21 @@ const Routes = ({ user, setUser }) => {
                 <Signup {...props} user={user} setUser={setUser} />
               )}
             />
-            <Route exact path="/game" render={(props) => (<StartGame {...props} /> )} />
-            <Route path="/game/:game_id/question/:order" render={(props) => ( <Question {...props}  /> )} />
+            <Route
+              exact
+              path="/game"
+              render={(props) => <StartGame {...props} />}
+            />
+            <Route
+              exact
+              path="/game/:game_id/question/:order"
+              render={(props) => <Question {...props} />}
+            />
+            <Route
+              exact
+              path="/game/:game_id/end_game"
+              render={(props) => <Results {...props} />}
+            />
             <Route
               exact
               path="/login"

@@ -74,6 +74,8 @@ const Question = (props) => {
       )
       .then((response) => {
         setTeams(response.data.teams);
+        event.target.classList.add("active");
+        event.target.parentElement.children[2].classList.remove("active");
       });
   };
 
@@ -88,6 +90,8 @@ const Question = (props) => {
       )
       .then((response) => {
         setTeams(response.data.teams);
+        event.target.classList.add("active");
+        event.target.parentElement.children[1].classList.remove("active");
       });
   };
 
@@ -101,10 +105,16 @@ const Question = (props) => {
             <p>
               {team.name}:{team.score}
             </p>
-            <button className="correct-btn" onClick={handleCorrectResponse}>
+            <button
+              className="correct-btn btn btn-outline-success"
+              onClick={handleCorrectResponse}
+            >
               Correct
             </button>
-            <button className="incorrect-btn" onClick={handleIncorrectResponse}>
+            <button
+              className="incorrect-btn btn btn-outline-danger"
+              onClick={handleIncorrectResponse}
+            >
               Incorrect
             </button>
           </div>

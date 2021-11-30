@@ -61,6 +61,8 @@ const Question = (props) => {
     }
 
     setQuestionOrder(questionOrder + 1);
+    document.querySelector(".correct-btn").classList.remove("active");
+    document.querySelector(".incorrect-btn").classList.remove("active");
   };
 
   const handleCorrectResponse = (event) => {
@@ -75,7 +77,9 @@ const Question = (props) => {
       .then((response) => {
         setTeams(response.data.teams);
         event.target.classList.add("active");
-        event.target.parentElement.children[2].classList.remove("active");
+        event.target.parentElement
+          .querySelector(".incorrect-btn")
+          .classList.remove("active");
       });
   };
 
@@ -90,8 +94,11 @@ const Question = (props) => {
       )
       .then((response) => {
         setTeams(response.data.teams);
+        debugger;
         event.target.classList.add("active");
-        event.target.parentElement.children[1].classList.remove("active");
+        event.target.parentElement
+          .querySelector(".correct-btn")
+          .classList.remove("active");
       });
   };
 

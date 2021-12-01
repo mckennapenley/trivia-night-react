@@ -61,8 +61,10 @@ const Question = (props) => {
     }
 
     setQuestionOrder(questionOrder + 1);
-    document.querySelector(".correct-btn").classList.remove("active");
-    document.querySelector(".incorrect-btn").classList.remove("active");
+
+    document.querySelectorAll(".answer-btn").forEach((element) => {
+      element.classList.remove("active");
+    });
   };
 
   const handleCorrectResponse = (event) => {
@@ -94,7 +96,6 @@ const Question = (props) => {
       )
       .then((response) => {
         setTeams(response.data.teams);
-        debugger;
         event.target.classList.add("active");
         event.target.parentElement
           .querySelector(".correct-btn")
@@ -113,13 +114,13 @@ const Question = (props) => {
               {team.name}:{team.score}
             </p>
             <button
-              className="correct-btn btn btn-outline-success"
+              className="answer-btn correct-btn btn btn-outline-success"
               onClick={handleCorrectResponse}
             >
               Correct
             </button>
             <button
-              className="incorrect-btn btn btn-outline-danger"
+              className="answer-btn incorrect-btn btn btn-outline-danger"
               onClick={handleIncorrectResponse}
             >
               Incorrect

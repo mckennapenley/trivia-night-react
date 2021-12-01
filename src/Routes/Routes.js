@@ -14,7 +14,7 @@ const Routes = ({ user, setUser }) => {
       <Router>
         <Nav setUser={setUser} />
         <div className="container">
-          <h1>Status: {user === "Logged" ? "Logged in" : "Not Logged in"}</h1>
+          {/* <h1>Status: {user === "Logged" ? "Logged in" : "Not Logged in"}</h1> */}
           <Switch>
             <Route
               path="/signup"

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import he from "he";
 import { Link } from "react-router-dom";
-// import Teams from "./Teams"
+import Teams from "./Teams";
 
 const Question = (props) => {
   const [questionOrder, setQuestionOrder] = useState(
@@ -104,42 +104,31 @@ const Question = (props) => {
   };
 
   return (
-    <div>
-      <p>Question: {prompt}</p>
-      <p>Answer: {answer}</p>
-      {teams.map((team) => {
-        return (
-          <div id={team.id} key={team.id}>
-            <p>
-              {team.name}:{team.score}
-            </p>
-            <button
-              className="answer-btn correct-btn btn btn-outline-success"
-              onClick={handleCorrectResponse}
-            >
-              Correct
-            </button>
-            <button
-              className="answer-btn incorrect-btn btn btn-outline-danger"
-              onClick={handleIncorrectResponse}
-            >
-              Incorrect
-            </button>
-          </div>
-        );
-      })}
-      {displayEndGame ? (
-        <Link onClick={handleClick} to={`/game/${game_id}/end_game`}>
-          End Game
-        </Link>
-      ) : (
-        <Link
-          onClick={handleClick}
-          to={`/game/${game_id}/question/${nextQuestionOrder}`}
-        >
-          Next Question
-        </Link>
-      )}
+    <div className="row">
+      <div className="col" id="left-scroll">
+        <Teams
+          teams={teams}
+          handleCorrectResponse={handleCorrectResponse}
+          handleIncorrectResponse={handleIncorrectResponse}
+        />
+      </div>
+      <div className="col">
+        <p>Question: {prompt}</p>
+        <p>Answer: {answer}</p>
+
+        {displayEndGame ? (
+          <Link onClick={handleClick} to={`/game/${game_id}/end_game`}>
+            End Game
+          </Link>
+        ) : (
+          <Link
+            onClick={handleClick}
+            to={`/game/${game_id}/question/${nextQuestionOrder}`}
+          >
+            Next Question
+          </Link>
+        )}
+      </div>
     </div>
   );
 };

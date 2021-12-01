@@ -46,11 +46,14 @@ const NewGameForm = (props) => {
   return (
     <div>
       <form className="col-lg-6 offset-lg-3" onSubmit={handleStartGame}>
-        <div className="form-headline">Start a Game</div>
-        <div className="form-group pb-4">
-          <label for="difficulty">Difficulty</label>
+        <div className="text-center my-5 h2">Start a Game</div>
+        <div className="form-group pb-4 ">
+          <label className="h5" for="difficulty">
+            Difficulty
+          </label>
+
           <select
-            class="form-control"
+            className="form-control"
             id="difficulty"
             name="difficulty"
             onChange={handleChange}
@@ -60,8 +63,11 @@ const NewGameForm = (props) => {
             <option>hard</option>
           </select>
         </div>
-        <div className="form-group pb-4">
-          <label for="question_qty">Number of Questions</label>
+        <div className="form-group pb-4 ">
+          <label className="h5" for="question_qty">
+            Number of Questions
+          </label>
+
           <input
             className="form-control"
             id="question_qty"
@@ -71,11 +77,9 @@ const NewGameForm = (props) => {
           />
         </div>
         <div id="game-field">
-          <div id="team-names" className="form-group pb-2">
-            <label>Add Team Names</label>
-            <button type="button" onClick={handleAddTeam}>
-              Add Team
-            </button>
+          <div id="team-names" className="form-group pb-4 ">
+            <label className="h5">Add Teams</label>
+
             {[...Array(teamCount)].map((_, index) => {
               return (
                 <TeamField teamNumber={index + 1} handleChange={handleChange} />
@@ -83,7 +87,18 @@ const NewGameForm = (props) => {
             })}
           </div>
         </div>
-        <button type="submit">Start Game</button>
+        <div className="d-flex justify-content-between">
+          <button
+            type="button"
+            className="btn btn-lg btn-primary"
+            onClick={handleAddTeam}
+          >
+            Add Team
+          </button>
+          <button type="submit" className="btn btn-lg btn-success">
+            Start Game
+          </button>
+        </div>
         {props.error && <div>{props.error}</div>}
       </form>
     </div>

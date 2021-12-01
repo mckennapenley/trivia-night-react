@@ -2,21 +2,21 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { logout } from "../PureFunctions/Logout";
 import "./Nav.css";
-const Nav = ({ setUser}) => {
+const Nav = ({ setUser }) => {
   const history = useHistory();
 
   const toke = JSON.parse(localStorage.getItem("token"));
   return (
     <nav className="">
-      {toke === '' ? (
+      {toke === "" ? (
         <ul className="list-unstyled d-flex py-3 justify-content-end">
           <li className="mx-3">
-            <Link className="text-decoration-none link-light" to="/signup">
+            <Link className="btn text-decoration-none link-light" to="/signup">
               Sign Up
             </Link>
           </li>
           <li className="mx-3">
-            <Link className="text-decoration-none link-light" to="/login">
+            <Link className="btn text-decoration-none link-light" to="/login">
               Login
             </Link>
           </li>
@@ -24,13 +24,13 @@ const Nav = ({ setUser}) => {
       ) : (
         <ul className="list-unstyled d-flex py-3 justify-content-end">
           <li className="mx-3">
-            <Link className="text-decoration-none link-light" to="/">
+            <Link className="btn text-decoration-none link-light" to="/">
               Home
             </Link>
           </li>
           <li className="mx-3">
             <button
-              className="logout-btn"
+              className="btn logout-btn"
               type="submit"
               onClick={(e) => logout(setUser, history)}
             >

@@ -5,7 +5,7 @@ import Nav from "../Pages/Nav";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import StartGame from "../components/StartGame/StartGame";
-import Question from "../components/Question";
+import Question from "../components/Question/Question";
 import Results from "../components/Results";
 
 const Routes = ({ user, setUser }) => {

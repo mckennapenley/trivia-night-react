@@ -13,6 +13,7 @@ const Question = (props) => {
   // const [questionId, setQuestionId] = useState()
   const [teams, setTeams] = useState([]);
   const [game, setGame] = useState({});
+  const [clearAnswerSelections, setClearAnswerSelections] = useState(false);
   const nextQuestionOrder = questionOrder + 1;
 
   const [displayEndGame, setDisplayEndGame] = useState(false);
@@ -36,6 +37,7 @@ const Question = (props) => {
 
         setPrompt(prompt);
         setAnswer(answer);
+        setClearAnswerSelections(false);
       });
   }, [game_id, questionOrder]);
 
@@ -61,10 +63,7 @@ const Question = (props) => {
     }
 
     setQuestionOrder(questionOrder + 1);
-
-    document.querySelectorAll(".answer-btn").forEach((element) => {
-      element.classList.remove("active");
-    });
+    setClearAnswerSelections(true);
   };
 
   const handleCorrectResponse = (event) => {
@@ -78,10 +77,6 @@ const Question = (props) => {
       )
       .then((response) => {
         setTeams(response.data.teams);
-        event.target.classList.add("active");
-        event.target.parentElement
-          .querySelector(".incorrect-btn")
-          .classList.remove("active");
       });
   };
 
@@ -96,21 +91,24 @@ const Question = (props) => {
       )
       .then((response) => {
         setTeams(response.data.teams);
-        event.target.classList.add("active");
-        event.target.parentElement
-          .querySelector(".correct-btn")
-          .classList.remove("active");
       });
   };
 
   return (
     <div className="row">
       <div className="col" id="left-scroll">
-        <Teams
-          teams={teams}
-          handleCorrectResponse={handleCorrectResponse}
-          handleIncorrectResponse={handleIncorrectResponse}
-        />
+        {teams.map((team) => {
+          return (
+            <>
+              <Teams
+                team={team}
+                handleCorrectResponse={handleCorrectResponse}
+                handleIncorrectResponse={handleIncorrectResponse}
+                clearAnswerSelections={clearAnswerSelections}
+              />
+            </>
+          );
+        })}
       </div>
       <div className="col">
         <p>Question: {prompt}</p>

@@ -21,7 +21,7 @@ const Results = (props) => {
     <div>
       <p>Results</p>
       <ol>
-        {teams.map((team, index) => {
+        {teams.map((team) => {
           return (
             <li key={team.id}>
               {team.name}: {team.score}

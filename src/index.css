@@ -21,3 +21,11 @@ code {
   background-color: #fcbf49;
   color: #003049;
 }
+
+.card {
+  background-color: #fcbf49;
+}
+
+button > * {
+  pointer-events: none;
+}

@@ -71,7 +71,7 @@ const Question = (props) => {
       .post(
         `http://localhost:3000/api/games/${game_id}/questions/${questionOrder}/create`,
         {
-          team_id: event.target.parentNode.getAttribute("id"),
+          team_id: event.target.closest(".team-div").getAttribute("id"),
           answered_correctly: true,
         }
       )
@@ -85,7 +85,7 @@ const Question = (props) => {
       .post(
         `http://localhost:3000/api/games/${game_id}/questions/${questionOrder}/create`,
         {
-          team_id: event.target.parentNode.getAttribute("id"),
+          team_id: event.target.closest(".team-div").getAttribute("id"),
           answered_correctly: false,
         }
       )
@@ -96,7 +96,7 @@ const Question = (props) => {
 
   return (
     <div className="row">
-      <div className="col" id="left-scroll">
+      <div className="col-3 py-1" id="left-scroll">
         {teams.map((team) => {
           return (
             <>

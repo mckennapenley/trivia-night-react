@@ -29,3 +29,6 @@ code {
 button > * {
   pointer-events: none;
 }
+
+#score {
+}

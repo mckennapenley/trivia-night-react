@@ -96,7 +96,7 @@ const Question = (props) => {
 
   return (
     <div className="row">
-      <div className="col-3 py-1" id="left-scroll">
+      <div className="col-6 col-md-4 py-1" id="left-scroll">
         {teams.map((team) => {
           return (
             <>
@@ -111,21 +111,28 @@ const Question = (props) => {
         })}
       </div>
       <div className="col">
-        <p>Question: {prompt}</p>
-        <p>Answer: {answer}</p>
-
-        {displayEndGame ? (
-          <Link onClick={handleClick} to={`/game/${game_id}/end_game`}>
-            End Game
-          </Link>
-        ) : (
-          <Link
-            onClick={handleClick}
-            to={`/game/${game_id}/question/${nextQuestionOrder}`}
-          >
-            Next Question
-          </Link>
-        )}
+        <div className="d-flex flex-column" id="right-col">
+          <div className="p-2">
+            <p>Question: {prompt}</p>
+          </div>
+          <div className="p-2">
+            <p>Answer: {answer}</p>
+          </div>
+          <div className="align-self-end" id="next">
+            {displayEndGame ? (
+              <Link onClick={handleClick} to={`/game/${game_id}/end_game`}>
+                End Game
+              </Link>
+            ) : (
+              <Link
+                onClick={handleClick}
+                to={`/game/${game_id}/question/${nextQuestionOrder}`}
+              >
+                Next Question
+              </Link>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

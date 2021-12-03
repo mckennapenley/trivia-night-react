@@ -33,34 +33,38 @@ const Teams = (props) => {
       key={props.team.id}
       className="team-div card d-flex"
     >
-      <div className="card-body">
+      <div className="card-body p-1 pe-2">
         <div className="card-title">
           <h4>{props.team.name}</h4>
         </div>
-        <div className="d-flex align-items-center">
-          <CorrectButton
-            selected={answerSelected === "correct"}
-            className="answer-btn correct-btn btn"
-            onClick={(target) => {
-              props.handleCorrectResponse(target);
-              setAnswerSelected("correct");
-            }}
-          >
-            <i className="bi bi-check-lg"></i>
-          </CorrectButton>
+        <div className="d-flex justify-content-center">
+          <div className="w-75 w-md-75 mt-1">
+            <CorrectButton
+              selected={answerSelected === "correct"}
+              className="answer-btn correct-btn btn"
+              onClick={(target) => {
+                props.handleCorrectResponse(target);
+                setAnswerSelected("correct");
+              }}
+            >
+              <i className="bi bi-check-lg"></i>
+            </CorrectButton>
 
-          <IncorrectButton
-            selected={answerSelected === "incorrect"}
-            className="answer-btn incorrect-btn btn btn-outline"
-            onClick={(target) => {
-              props.handleIncorrectResponse(target);
-              setAnswerSelected("incorrect");
-            }}
-          >
-            <i className="bi bi-x-lg"></i>
-          </IncorrectButton>
+            <IncorrectButton
+              selected={answerSelected === "incorrect"}
+              className="answer-btn incorrect-btn btn btn-outline"
+              onClick={(target) => {
+                props.handleIncorrectResponse(target);
+                setAnswerSelected("incorrect");
+              }}
+            >
+              <i className="bi bi-x-lg"></i>
+            </IncorrectButton>
+          </div>
 
-          <div className="ms-auto h5">{props.team.score}</div>
+          <div className="h5 justify-content-center">
+            <p className="mt-2">{props.team.score}</p>
+          </div>
         </div>
       </div>
     </div>

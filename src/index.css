@@ -16,7 +16,7 @@ code {
 }
 
 #left-scroll {
-  height: 100vh;
+  height: 82vh;
   overflow-y: scroll;
   background-color: #fcbf49;
   color: #003049;
@@ -31,9 +31,24 @@ button > * {
 }
 
 #right-col {
-  height: 80vh;
+  height: 75vh;
+}
+
+#left-col {
+  color: black;
 }
 
 #next {
   margin-top: auto;
+}
+
+#results-container > .row .row-bordered:after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #ccc;
+  margin: 0 15px;
+}
+
+#team-score {
+  min-width: 75px;
 }

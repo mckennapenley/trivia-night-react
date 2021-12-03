@@ -62,7 +62,7 @@ const Teams = (props) => {
             </IncorrectButton>
           </div>
 
-          <div className="h5 justify-content-center">
+          <div id="team-score" className="h5 justify-content-center">
             <p className="mt-2">{props.team.score}</p>
           </div>
         </div>

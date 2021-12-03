@@ -18,17 +18,27 @@ const Results = (props) => {
   }, []);
 
   return (
-    <div>
-      <p>Results</p>
-      <ol>
-        {teams.map((team) => {
-          return (
-            <li key={team.id}>
-              {team.name}: {team.score}
-            </li>
-          );
-        })}
-      </ol>
+    <div className="d-flex flex-column align-items-center">
+      <p className="h2 mb-5">Results</p>
+
+      {teams.map((team, index) => {
+        return (
+          <div key={team.id} className="container" id="results-container">
+            <div className="row justify-content-md-center">
+              <div className="col-2">
+                <p className="text-center h3">{index + 1}.</p>
+              </div>
+              <div className="col-2">
+                <p className="text-center h3">{team.name}</p>
+              </div>
+              <div className="col-2">
+                <p className="text-center h3">{team.score}</p>
+              </div>
+            </div>
+            <hr />
+          </div>
+        );
+      })}
     </div>
   );
 };

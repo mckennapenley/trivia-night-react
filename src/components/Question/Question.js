@@ -96,39 +96,56 @@ const Question = (props) => {
 
   return (
     <div className="row">
-      <div className="col-6 col-md-4 py-1" id="left-scroll">
-        {teams.map((team) => {
-          return (
-            <>
-              <Teams
-                team={team}
-                handleCorrectResponse={handleCorrectResponse}
-                handleIncorrectResponse={handleIncorrectResponse}
-                clearAnswerSelections={clearAnswerSelections}
-              />
-            </>
-          );
-        })}
-      </div>
-      <div className="col">
-        <div className="d-flex flex-column" id="right-col">
-          <div className="p-2">
-            <p>Question: {prompt}</p>
+      <div className="col-6 col-md-4" id="left-col">
+        <div className="card">
+          <div className="card-body">
+            <div className="card-title">
+              <h3>Teams</h3>
+            </div>
           </div>
-          <div className="p-2">
-            <p>Answer: {answer}</p>
+        </div>
+        <div id="left-scroll">
+          {teams.map((team) => {
+            return (
+              <>
+                <Teams
+                  team={team}
+                  handleCorrectResponse={handleCorrectResponse}
+                  handleIncorrectResponse={handleIncorrectResponse}
+                  clearAnswerSelections={clearAnswerSelections}
+                />
+              </>
+            );
+          })}
+        </div>
+      </div>
+      <div className="col align-self-center">
+        <div className="d-flex flex-column" id="right-col">
+          <div className="p-2 my-5 mx-5" id="prompt">
+            <h2>{prompt}</h2>
+          </div>
+          <div
+            className="p-2 my-5 mx-5 d-flex justify-content-center"
+            id="answer"
+          >
+            <h2>{answer}</h2>
           </div>
           <div className="align-self-end" id="next">
             {displayEndGame ? (
-              <Link onClick={handleClick} to={`/game/${game_id}/end_game`}>
+              <Link
+                onClick={handleClick}
+                to={`/game/${game_id}/end_game`}
+                className="btn btn-outline-light"
+              >
                 End Game
               </Link>
             ) : (
               <Link
                 onClick={handleClick}
                 to={`/game/${game_id}/question/${nextQuestionOrder}`}
+                className="btn btn-outline-light"
               >
-                Next Question
+                Next Question <i class="bi bi-arrow-right"></i>
               </Link>
             )}
           </div>

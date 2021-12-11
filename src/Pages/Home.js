@@ -5,11 +5,11 @@ import styled from "styled-components";
 
 const StyledWelcome = styled.div`
     background-image: url("src/images/pexels-marcus-herzberg-1058277.jpg");
-     background-image: url(${img});
+    background-image: url(${img});
     color: #fcbf49;
     min-height: 100vh;
     background-size: cover;
-    box-shadow: inset 0 0 0 2000px rgba(255, 0, 150, 0.3);
+    box-shadow: inset 0 0 0 2000px rgba(60,145,230,0.6);
   }
 `;
 
@@ -24,7 +24,7 @@ const Home = () => {
         Select question difficulty, number of questions, and enter as many teams
         you need.
       </h3>
-      <Link to={`/game`} className="btn btn-outline-light">
+      <Link to={`/game`} className="btn btn-outline-light" id="home-page-btn">
         Get Started - it's free!
       </Link>
     </StyledWelcome>

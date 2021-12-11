@@ -3,20 +3,22 @@ import styled from "styled-components";
 
 const Teams = (props) => {
   const CorrectButton = styled.button`
-    background-color: ${(props) => (props.selected ? "green" : "transparent")};
-    color: ${(props) => (props.selected ? "white" : "green")};
+    background-color: ${(props) =>
+      props.selected ? "#9EE37D" : "transparent"};
+    color: ${(props) => (props.selected ? "white" : "#9EE37D")};
     width: 75px;
     margin-right: 5px;
     border: 2px solid;
-    border-color: green;
+    border-color: #9ee37d;
   `;
 
   const IncorrectButton = styled.button`
-    background-color: ${(props) => (props.selected ? "red" : "transparent")};
-    color: ${(props) => (props.selected ? "white" : "red")};
+    background-color: ${(props) =>
+      props.selected ? "#EF233C" : "transparent"};
+    color: ${(props) => (props.selected ? "white" : "#EF233C")};
     width: 75px;
     border: 2px solid;
-    border-color: red;
+    border-color: #ef233c;
   `;
 
   const [answerSelected, setAnswerSelected] = useState("");

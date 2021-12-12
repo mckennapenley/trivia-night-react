@@ -66,8 +66,16 @@ button > * {
   margin-top: 250px;
 }
 
-#home-page-btn {
+/* #home-page-btn {
   background-color: #bb86fc;
   border-color: #bb86fc;
   color: #dedede;
+} */
+
+.navbar-brand {
+  color: #bb86fc;
+}
+
+.navbar-brand:hover {
+  color: #bb86fc;
 }

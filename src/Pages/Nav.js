@@ -7,7 +7,10 @@ const Nav = ({ setUser }) => {
 
   const toke = JSON.parse(localStorage.getItem("token"));
   return (
-    <nav className="">
+    <nav className="navbar">
+      <Link className="navbar-brand ms-3" to="/">
+        Trivia Night
+      </Link>
       {toke === "" ? (
         <ul className="list-unstyled d-flex py-3 justify-content-end">
           <li className="mx-3">
@@ -30,7 +33,7 @@ const Nav = ({ setUser }) => {
           </li>
           <li className="mx-3">
             <button
-              className="btn logout-btn"
+              className="btn text-decoration-none link-light logout-btn"
               type="submit"
               onClick={(e) => logout(setUser, history)}
             >

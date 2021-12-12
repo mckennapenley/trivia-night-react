@@ -4,21 +4,21 @@ import styled from "styled-components";
 const Teams = (props) => {
   const CorrectButton = styled.button`
     background-color: ${(props) =>
-      props.selected ? "#9EE37D" : "transparent"};
-    color: ${(props) => (props.selected ? "white" : "#9EE37D")};
+      props.selected ? "#00dac5" : "transparent"};
+    color: ${(props) => (props.selected ? "white" : "#00dac5")};
     width: 75px;
     margin-right: 5px;
     border: 2px solid;
-    border-color: #9ee37d;
+    border-color: #00dac5;
   `;
 
   const IncorrectButton = styled.button`
     background-color: ${(props) =>
-      props.selected ? "#EF233C" : "transparent"};
-    color: ${(props) => (props.selected ? "white" : "#EF233C")};
+      props.selected ? "#cf6679" : "transparent"};
+    color: ${(props) => (props.selected ? "white" : "#cf6679")};
     width: 75px;
     border: 2px solid;
-    border-color: #ef233c;
+    border-color: #cf6679;
   `;
 
   const [answerSelected, setAnswerSelected] = useState("");

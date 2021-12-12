@@ -1,16 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import img from "../images/pexels-marcus-herzberg-1058277.jpg";
+import img from "../images/pexels-julia-filirovska-4913788.jpg";
 import styled from "styled-components";
 
 const StyledWelcome = styled.div`
-    background-image: url("src/images/pexels-marcus-herzberg-1058277.jpg");
-    background-image: url(${img});
-    color: #949494;
-    min-height: 100vh;
-    background-size: cover;
-    box-shadow: inset 0 0 0 2000px rgba(40,40,40,0.8);
-    font-family: 'Mulish', sans-serif;
+  background-image: url(${img});
+  color: #949494;
+  min-height: 100vh;
+  background-size: cover;
+  box-shadow: inset 0 0 0 2000px rgba(40, 40, 40, 0.92);
+  font-family: "Mulish", sans-serif;
+
+  #home-page-btn {
+    margin-top: 10px;
+    background-color: #bb86fc;
+    color: #121212;
+    border-color: #bb86fc;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 45px;
+    transition: all 0.3s ease 0s;
+  }
+
+  #home-page-btn:hover {
+    background-color: #9a4cfa;
+    box-shadow: 0px 15px 20px rgba(154, 76, 250, 0.4);
+    color: #fff;
+    transform: translateY(-3px);
   }
 `;
 

@@ -90,12 +90,13 @@ const NewGameForm = (props) => {
         <div className="d-flex justify-content-between">
           <button
             type="button"
-            className="btn btn-lg btn-primary"
+            className="btn btn-lg"
+            id="add-team-button"
             onClick={handleAddTeam}
           >
-            Add Team
+            <i class="bi bi-plus bi-2x"></i>
           </button>
-          <button type="submit" className="btn btn-lg btn-success">
+          <button type="submit" className="btn btn-lg" id="start-game-btn">
             Start Game
           </button>
         </div>

@@ -66,16 +66,44 @@ button > * {
   margin-top: 250px;
 }
 
-/* #home-page-btn {
-  background-color: #bb86fc;
-  border-color: #bb86fc;
-  color: #dedede;
-} */
-
 .navbar-brand {
   color: #bb86fc;
 }
 
 .navbar-brand:hover {
-  color: #bb86fc;
+  color: #9a4cfa;
+  transform: translateY(-3px);
+}
+
+#add-team-button {
+  border-radius: 50%;
+  background-color: #00dac5;
+  transition: all 0.3s ease 0s;
+}
+
+#add-team-button:hover {
+  background-color: #00b8a5;
+  transform: translateY(-3px);
+  box-shadow: 0px 15px 20px rgba(0, 184, 165, 0.4);
+  color: #fff;
+}
+
+.bi-plus {
+  font-size: 30px;
+}
+
+#start-game-btn {
+  background-color: #bb86fc;
+  color: #121212;
+  /* border-color: #bb86fc; */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 45px;
+  transition: all 0.3s ease 0s;
+}
+
+#start-game-btn:hover {
+  background-color: #9a4cfa;
+  box-shadow: 0px 15px 20px rgba(154, 76, 250, 0.4);
+  color: #fff;
+  transform: translateY(-3px);
 }

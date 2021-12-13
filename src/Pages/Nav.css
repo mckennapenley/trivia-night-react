@@ -11,3 +11,7 @@ ul {
   background: none;
   border: none; */
 }
+
+li:hover {
+  transform: translateY(-3px);
+}

@@ -97,14 +97,7 @@ const Question = (props) => {
   return (
     <div className="row">
       <div className="col-6 col-md-4" id="left-col">
-        <div className="card">
-          <div className="card-body">
-            <div className="card-title">
-              <h3>Teams</h3>
-            </div>
-          </div>
-        </div>
-        <div id="left-scroll">
+        <div className="m-5 p-4" id="left-scroll">
           {teams.map((team) => {
             return (
               <>
@@ -119,23 +112,26 @@ const Question = (props) => {
           })}
         </div>
       </div>
-      <div className="col align-self-center">
+      <div className="col">
         <div className="d-flex flex-column" id="right-col">
-          <div className="p-2 my-5 mx-5" id="prompt">
-            <h2>{prompt}</h2>
-          </div>
-          <div
-            className="p-2 my-5 mx-5 d-flex justify-content-center"
-            id="answer"
-          >
-            <h2>{answer}</h2>
+          <div id="prompt-answer" className="mt-5 me-5">
+            <div className="p-2 my-5 mx-5" id="prompt">
+              <h2>{prompt}</h2>
+            </div>
+            <div
+              className="p-2 my-5 mx-5 d-flex justify-content-center"
+              id="answer"
+            >
+              <h2>{answer}</h2>
+            </div>
           </div>
           <div className="align-self-end" id="next">
             {displayEndGame ? (
               <Link
                 onClick={handleClick}
                 to={`/game/${game_id}/end_game`}
-                className="btn btn-outline-light"
+                className="btn me-5"
+                id="end-game-btn"
               >
                 End Game
               </Link>
@@ -143,7 +139,8 @@ const Question = (props) => {
               <Link
                 onClick={handleClick}
                 to={`/game/${game_id}/question/${nextQuestionOrder}`}
-                className="btn btn-outline-light"
+                className="btn me-5"
+                id="next-question-btn"
               >
                 Next Question <i class="bi bi-arrow-right"></i>
               </Link>

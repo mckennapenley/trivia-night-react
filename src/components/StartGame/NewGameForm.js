@@ -45,8 +45,12 @@ const NewGameForm = (props) => {
 
   return (
     <div>
-      <form className="col-lg-6 offset-lg-3" onSubmit={handleStartGame}>
-        <div className="text-center my-5 h2">Start a Game</div>
+      <form
+        className="col-lg-6 offset-lg-3 col-md-8 offset-md-2 card p-5 my-5"
+        id="form-bg"
+        onSubmit={handleStartGame}
+      >
+        <div className="text-center  h2">Start a Game</div>
         <div className="form-group pb-4 ">
           <label className="h5" for="difficulty">
             Difficulty
@@ -58,6 +62,10 @@ const NewGameForm = (props) => {
             name="difficulty"
             onChange={handleChange}
           >
+            <option value="" selected disabled>
+              Select
+            </option>
+
             <option>easy</option>
             <option>medium</option>
             <option>hard</option>

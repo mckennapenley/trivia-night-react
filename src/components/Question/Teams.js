@@ -6,19 +6,27 @@ const Teams = (props) => {
     background-color: ${(props) =>
       props.selected ? "#00dac5" : "transparent"};
     color: ${(props) => (props.selected ? "white" : "#00dac5")};
+    transition: all 0.3s ease 0s;
     width: 75px;
     margin-right: 5px;
-    border: 2px solid;
-    border-color: #00dac5;
+    border: 2px solid #00dac5;
+    &:hover {
+      box-shadow: 0px 15px 20px rgba(0, 184, 165, 0.4);
+      color: #fff;
+    }
   `;
 
   const IncorrectButton = styled.button`
     background-color: ${(props) =>
       props.selected ? "#cf6679" : "transparent"};
     color: ${(props) => (props.selected ? "white" : "#cf6679")};
+    transition: all 0.3s ease 0s;
     width: 75px;
-    border: 2px solid;
-    border-color: #cf6679;
+    border: 2px solid #cf6679;
+    &:hover {
+      box-shadow: 0px 15px 20px rgba(207, 102, 121, 0.4);
+      color: #fff;
+    }
   `;
 
   const [answerSelected, setAnswerSelected] = useState("");
@@ -33,7 +41,7 @@ const Teams = (props) => {
     <div
       id={props.team.id}
       key={props.team.id}
-      className="team-div card d-flex"
+      className="team-div card d-flex mt-4"
     >
       <div className="card-body p-1 pe-2">
         <div className="card-title">
@@ -54,7 +62,7 @@ const Teams = (props) => {
 
             <IncorrectButton
               selected={answerSelected === "incorrect"}
-              className="answer-btn incorrect-btn btn btn-outline"
+              className="answer-btn incorrect-btn btn "
               onClick={(target) => {
                 props.handleIncorrectResponse(target);
                 setAnswerSelected("incorrect");

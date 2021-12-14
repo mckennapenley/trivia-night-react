@@ -29,7 +29,7 @@ const Results = (props) => {
                 <p className="text-center h3">{index + 1}.</p>
               </div>
               <div className="col-2">
-                <p className="text-center h3">{team.name}</p>
+                <p className="text-center h3 text-break">{team.name}</p>
               </div>
               <div className="col-2">
                 <p className="text-center h3">{team.score}</p>

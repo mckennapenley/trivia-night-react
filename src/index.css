@@ -21,7 +21,9 @@ code {
 }
 
 #left-scroll {
-  height: 82vh;
+  /* margin-top: 5vh;
+  margin-left: 5vh; */
+  height: 80vh;
   overflow-y: scroll;
   background-color: #1f1f1f;
   color: #dedede;
@@ -40,7 +42,7 @@ button > * {
 }
 
 #left-col {
-  color: black;
+  /* color: black; */
 }
 
 #next {
@@ -68,6 +70,8 @@ button > * {
 
 .navbar-brand {
   color: #bb86fc;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .navbar-brand:hover {
@@ -92,18 +96,41 @@ button > * {
   font-size: 30px;
 }
 
-#start-game-btn {
+#start-game-btn,
+#next-question-btn,
+#end-game-btn {
   background-color: #bb86fc;
   color: #121212;
-  /* border-color: #bb86fc; */
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
   border-radius: 45px;
   transition: all 0.3s ease 0s;
 }
 
-#start-game-btn:hover {
+#start-game-btn:hover,
+#next-question-btn:hover,
+#end-game-btn:hover {
   background-color: #9a4cfa;
   box-shadow: 0px 15px 20px rgba(154, 76, 250, 0.4);
   color: #fff;
   transform: translateY(-3px);
+}
+
+html * {
+  font-family: "Mulish", sans-serif;
+}
+
+#prompt-answer {
+  background-color: #1f1f1f;
+}
+
+input[type="text"],
+#difficulty {
+  background-color: #dedede;
+}
+
+input[type="text"]:focus,
+#difficulty:focus {
+  background-color: #dedede;
+  box-shadow: 0 0 5px rgba(187, 134, 252, 1);
+  border: 1px solid rgba(187, 134, 252, 1);
 }

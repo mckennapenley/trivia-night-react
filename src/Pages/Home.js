@@ -15,7 +15,6 @@ const StyledWelcome = styled.div`
     margin-top: 10px;
     background-color: #bb86fc;
     color: #121212;
-    border-color: #bb86fc;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
     border-radius: 45px;
     transition: all 0.3s ease 0s;
@@ -46,11 +45,7 @@ const Home = () => {
               Select question difficulty, number of questions, and enter as many
               teams you need.
             </h3>
-            <Link
-              to={`/game`}
-              className="btn btn-outline-light"
-              id="home-page-btn"
-            >
+            <Link to={`/game`} className="btn" id="home-page-btn">
               Get Started - it's free!
             </Link>
           </div>

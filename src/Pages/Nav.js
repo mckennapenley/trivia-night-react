@@ -8,7 +8,7 @@ const Nav = ({ setUser }) => {
   const toke = JSON.parse(localStorage.getItem("token"));
   return (
     <nav className="navbar">
-      <Link className="navbar-brand ms-3" to="/">
+      <Link className="navbar-brand ms-2 ms-lg-5" to="/">
         Trivia Night
       </Link>
       {toke === "" ? (
@@ -33,7 +33,7 @@ const Nav = ({ setUser }) => {
           </li>
           <li className="mx-3">
             <button
-              className="btn text-decoration-none link-light logout-btn"
+              className="btn text-decoration-none link-light logout-btn "
               type="submit"
               onClick={(e) => logout(setUser, history)}
             >

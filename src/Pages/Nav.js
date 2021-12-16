@@ -11,37 +11,13 @@ const Nav = ({ setUser }) => {
       <Link className="navbar-brand ms-2 ms-lg-5" to="/">
         Trivia Night
       </Link>
-      {toke === "" ? (
-        <ul className="list-unstyled d-flex py-3 justify-content-end">
-          <li className="mx-3">
-            <Link className="btn text-decoration-none link-light" to="/signup">
-              Sign Up
-            </Link>
-          </li>
-          <li className="mx-3">
-            <Link className="btn text-decoration-none link-light" to="/login">
-              Login
-            </Link>
-          </li>
-        </ul>
-      ) : (
-        <ul className="list-unstyled d-flex py-3 justify-content-end">
-          <li className="mx-3">
-            <Link className="btn text-decoration-none link-light" to="/">
-              Home
-            </Link>
-          </li>
-          <li className="mx-3">
-            <button
-              className="btn text-decoration-none link-light logout-btn "
-              type="submit"
-              onClick={(e) => logout(setUser, history)}
-            >
-              Log out
-            </button>
-          </li>
-        </ul>
-      )}
+      <ul className="list-unstyled d-flex py-3 justify-content-end">
+        <li className="mx-3">
+          <Link className="btn text-decoration-none link-light" to="/">
+            Home
+          </Link>
+        </li>
+      </ul>
     </nav>
   );
 };

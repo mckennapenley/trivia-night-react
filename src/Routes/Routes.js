@@ -2,25 +2,16 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../Pages/Home";
 import Nav from "../Pages/Nav";
-import Login from "../Pages/Login";
-import Signup from "../Pages/Signup";
 import StartGame from "../components/StartGame/StartGame";
 import Question from "../components/Question/Question";
 import Results from "../components/Results";
 
-const Routes = ({ user, setUser }) => {
+const Routes = () => {
   return (
     <div>
       <Router>
-        <Nav setUser={setUser} />
-        {/* <h1>Status: {user === "Logged" ? "Logged in" : "Not Logged in"}</h1> */}
+        <Nav />
         <Switch>
-          <Route
-            path="/signup"
-            render={(props) => (
-              <Signup {...props} user={user} setUser={setUser} />
-            )}
-          />
           <Route
             exact
             path="/game"
@@ -35,13 +26,6 @@ const Routes = ({ user, setUser }) => {
             exact
             path="/game/:game_id/end_game"
             render={(props) => <Results {...props} />}
-          />
-          <Route
-            exact
-            path="/login"
-            render={(props) => (
-              <Login {...props} user={user} setUser={setUser} />
-            )}
           />
           <Route path="/" render={(props) => <Home {...props} />} />
         </Switch>

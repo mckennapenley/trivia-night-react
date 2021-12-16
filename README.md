@@ -1,4 +1,6 @@
-[Link](https://github.com/mckennapenley/trivia-night-rails) to Ruby on Rails backend
+# Trivia Night
+
+[Link](https://github.com/mckennapenley/trivia-night-react) to Ruby on Rails backend
 
 Will be deployed to Heroku in the near future!
 
@@ -30,3 +32,5 @@ Builts with:
 
 - Add capability to present questions with multiple choice answers
 - Create Question has many Responses relationship so users can see and edit previous responses to previous questions
+- Add timer countdown clock
+- Add ability to show/hide answer

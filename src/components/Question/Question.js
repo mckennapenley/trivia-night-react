@@ -10,7 +10,6 @@ const Question = (props) => {
   );
   const [prompt, setPrompt] = useState();
   const [answer, setAnswer] = useState();
-  // const [questionId, setQuestionId] = useState()
   const [teams, setTeams] = useState([]);
   const [game, setGame] = useState({});
   const [clearAnswerSelections, setClearAnswerSelections] = useState(false);
@@ -27,9 +26,18 @@ const Question = (props) => {
 
   useEffect(() => {
     axios
-      .post(
-        `http://localhost:3000/api/games/${game_id}/questions/${questionOrder}`,
-        { game_id }
+      .get(`http://localhost:3000/api/games/${game_id}/teams`)
+      .then((response) => {
+        setTeams(response.data.teams);
+        setGame(response.data.game);
+        setQuestionQuantity(response.data.game.question_quantity);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:3000/api/games/${game_id}/questions/${questionOrder}`
       )
       .then((response) => {
         const prompt = htmlDecode(response.data.prompt);
@@ -41,27 +49,14 @@ const Question = (props) => {
       });
   }, [game_id, questionOrder]);
 
-  useEffect(() => {
-    axios
-      .post(`http://localhost:3000/api/games/${game_id}/teams`)
-      .then((response) => {
-        setTeams(response.data.teams);
-        setGame(response.data.game);
-        setQuestionQuantity(response.data.game.question_quantity);
-      });
-  }, []);
-
+  // Handles case where user arrives at last question url, it will check to use endgame on render
   useEffect(() => {
     if (questionOrder === questionQuantity) {
       setDisplayEndGame(true);
     }
-  }, [questionQuantity]);
+  }, [questionOrder, questionQuantity]);
 
   const handleClick = () => {
-    if (nextQuestionOrder === questionQuantity) {
-      setDisplayEndGame(true);
-    }
-
     setQuestionOrder(questionOrder + 1);
     setClearAnswerSelections(true);
   };

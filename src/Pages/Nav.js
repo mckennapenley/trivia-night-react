@@ -1,10 +1,7 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Nav.css";
-const Nav = ({ setUser }) => {
-  const history = useHistory();
-
-  const toke = JSON.parse(localStorage.getItem("token"));
+const Nav = () => {
   return (
     <nav className="navbar">
       <Link className="navbar-brand ms-2 ms-lg-5" to="/">

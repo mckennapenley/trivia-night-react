@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { API_ROOT } from "../../apiRoot";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import TeamField from "./TeamField";
@@ -22,7 +23,7 @@ const NewGameForm = (props) => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:3000/api/games/start_game", { game })
+      .post(`${API_ROOT}/api/games/start_game`, { game })
       .then((response) => {
         setGameId(response.data.id);
         setToNextQuestion(true);

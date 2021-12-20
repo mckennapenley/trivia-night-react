@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { API_ROOT } from "../../apiRoot";
 import axios from "axios";
 import he from "he";
 import { Link } from "react-router-dom";
@@ -25,20 +26,16 @@ const Question = (props) => {
   };
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/api/games/${game_id}/teams`)
-      .then((response) => {
-        setTeams(response.data.teams);
-        setGame(response.data.game);
-        setQuestionQuantity(response.data.game.question_quantity);
-      });
+    axios.get(`${API_ROOT}/api/games/${game_id}/teams`).then((response) => {
+      setTeams(response.data.teams);
+      setGame(response.data.game);
+      setQuestionQuantity(response.data.game.question_quantity);
+    });
   }, []);
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:3000/api/games/${game_id}/questions/${questionOrder}`
-      )
+      .get(`${API_ROOT}/api/games/${game_id}/questions/${questionOrder}`)
       .then((response) => {
         const prompt = htmlDecode(response.data.prompt);
         const answer = htmlDecode(response.data.answer);
@@ -64,7 +61,7 @@ const Question = (props) => {
   const handleCorrectResponse = (event) => {
     axios
       .post(
-        `http://localhost:3000/api/games/${game_id}/questions/${questionOrder}/create`,
+        `${API_ROOT}/api/games/${game_id}/questions/${questionOrder}/create`,
         {
           team_id: event.target.closest(".team-div").getAttribute("id"),
           answered_correctly: true,
@@ -78,7 +75,7 @@ const Question = (props) => {
   const handleIncorrectResponse = (event) => {
     axios
       .post(
-        `http://localhost:3000/api/games/${game_id}/questions/${questionOrder}/create`,
+        `${API_ROOT}/api/games/${game_id}/questions/${questionOrder}/create`,
         {
           team_id: event.target.closest(".team-div").getAttribute("id"),
           answered_correctly: false,

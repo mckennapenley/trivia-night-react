@@ -26,15 +26,29 @@ const StyledWelcome = styled.div`
     color: #fff;
     transform: translateY(-3px);
   }
+
+  #home-text-container {
+    min-height: 100vh;
+  }
+
+  #welcome-first-line {
+    margin-top: 250px;
+  }
+
+  @media only screen and (max-width: 400px) {
+    #welcome-first-line {
+      margin-top: 150px;
+    }
+  }
 `;
 
 const Home = () => {
   return (
     <StyledWelcome>
       <div className="row" id="home-text-container">
-        <div className="col-6 offset-3 ">
+        <div className="col-12 col-md-8 offset-md-2 ">
           <div
-            className="d-flex flex-column justify-content-center align-items-center"
+            className="d-flex flex-column justify-content-center align-items-center mx-5"
             id="home-text"
           >
             <h1 className="text-center" id="welcome-first-line">

@@ -47,7 +47,13 @@ const NewGameForm = (props) => {
 
   return (
     <div>
-      {error && <div>{error}</div>}
+      {error && (
+        <div className="d-flex justify-content-center">
+          <div class="mt-2 alert alert-danger w-75" role="alert">
+            {error}
+          </div>
+        </div>
+      )}
       <form
         className="col-lg-6 offset-lg-3 col-md-8 offset-md-2 card p-5 my-5"
         id="form-bg"
@@ -115,7 +121,11 @@ const NewGameForm = (props) => {
             Start Game
           </button>
         </div>
-        {props.error && <div>{props.error}</div>}
+        {props.error && (
+          <div className="alert alert-danger" role="alert">
+            {props.error}
+          </div>
+        )}
       </form>
     </div>
   );

@@ -88,8 +88,8 @@ const Question = (props) => {
 
   return (
     <div className="row">
-      <div className="col-6 col-md-4" id="left-col">
-        <div className="m-5 p-4" id="left-scroll">
+      <div className="col-5 p-0 mx-2" id="left-col">
+        <div className="mt-2 m-md-5 ps-4 p-md-4" id="left-scroll">
           {teams.map((team) => {
             return (
               <>
@@ -104,10 +104,10 @@ const Question = (props) => {
           })}
         </div>
       </div>
-      <div className="col">
-        <div className="d-flex flex-column" id="right-col">
-          <div id="prompt-answer" className="mt-5 me-5">
-            <div className="p-2 my-5 mx-5" id="prompt">
+      <div className="col-6 p-0">
+        <div className="mt-2 d-flex flex-column" id="right-col">
+          <div id="prompt-answer" className="mt-md-5">
+            <div className="p-2 my-5 mx-2 mx-lg-5" id="prompt">
               <h2>{prompt}</h2>
             </div>
             <div
@@ -122,7 +122,7 @@ const Question = (props) => {
               <Link
                 onClick={handleClick}
                 to={`/game/${game_id}/end_game`}
-                className="btn me-5"
+                className="btn me-3 me-md-5"
                 id="end-game-btn"
               >
                 End Game
@@ -131,7 +131,7 @@ const Question = (props) => {
               <Link
                 onClick={handleClick}
                 to={`/game/${game_id}/question/${nextQuestionOrder}`}
-                className="btn me-5"
+                className="btn me-3 me-md-5"
                 id="next-question-btn"
               >
                 Next Question <i class="bi bi-arrow-right"></i>

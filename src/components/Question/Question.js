@@ -121,7 +121,7 @@ const Question = (props) => {
             {displayEndGame ? (
               <Link
                 onClick={handleClick}
-                to={`/game/${game_id}/end_game`}
+                to={`/game/${game_id}/results`}
                 className="btn me-3 me-md-5"
                 id="end-game-btn"
               >

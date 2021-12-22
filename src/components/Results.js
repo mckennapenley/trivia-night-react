@@ -6,7 +6,7 @@ const Results = (props) => {
   const [teams, setTeams] = useState([]);
   const game_id = props.match.params.game_id;
   useEffect(() => {
-    axios.post(`${API_ROOT}/api/games/${game_id}/end_game`).then((response) => {
+    axios.get(`${API_ROOT}/api/games/${game_id}/teams`).then((response) => {
       const teams = response.data.teams;
 
       teams.sort((a, b) => {

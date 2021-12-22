@@ -24,7 +24,7 @@ const Routes = () => {
           />
           <Route
             exact
-            path="/game/:game_id/end_game"
+            path="/game/:game_id/results"
             render={(props) => <Results {...props} />}
           />
           <Route path="/" render={(props) => <Home {...props} />} />

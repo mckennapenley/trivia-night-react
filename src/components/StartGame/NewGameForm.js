@@ -121,11 +121,6 @@ const NewGameForm = (props) => {
             Start Game
           </button>
         </div>
-        {props.error && (
-          <div className="alert alert-danger" role="alert">
-            {props.error}
-          </div>
-        )}
       </form>
     </div>
   );

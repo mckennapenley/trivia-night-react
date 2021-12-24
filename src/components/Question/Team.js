@@ -55,8 +55,8 @@ const Teams = (props) => {
               <CorrectButton
                 selected={answerSelected === "correct"}
                 className="answer-btn correct-btn btn"
-                onClick={(target) => {
-                  props.handleCorrectResponse(target);
+                onClick={(event) => {
+                  props.handleCorrectResponse(event);
                   setAnswerSelected("correct");
                 }}
               >
@@ -66,8 +66,8 @@ const Teams = (props) => {
               <IncorrectButton
                 selected={answerSelected === "incorrect"}
                 className="answer-btn incorrect-btn btn w-35 w-md-75"
-                onClick={(target) => {
-                  props.handleIncorrectResponse(target);
+                onClick={(event) => {
+                  props.handleIncorrectResponse(event);
                   setAnswerSelected("incorrect");
                 }}
               >

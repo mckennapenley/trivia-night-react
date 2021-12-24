@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { API_ROOT } from "../../apiRoot";
+import { API_ROOT } from "../apiRoot";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import TeamField from "./TeamField";
 
-const NewGameForm = (props) => {
+const NewGameForm = () => {
   const [game, setGame] = useState();
   const [gameId, setGameId] = useState();
   const [toNextQuestion, setToNextQuestion] = useState(false);

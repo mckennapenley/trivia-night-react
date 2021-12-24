@@ -5,6 +5,7 @@ import axios from "axios";
 const Results = (props) => {
   const [teams, setTeams] = useState([]);
   const game_id = props.match.params.game_id;
+
   useEffect(() => {
     axios.get(`${API_ROOT}/api/games/${game_id}/teams`).then((response) => {
       const teams = response.data.teams;
@@ -12,6 +13,7 @@ const Results = (props) => {
       teams.sort((a, b) => {
         return b.score - a.score;
       });
+
       setTeams(teams);
     });
   }, []);

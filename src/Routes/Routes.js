@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../Pages/Home";
 import Nav from "../Pages/Nav";
-import StartGame from "../components/StartGame/StartGame";
+import NewGameForm from "../components/NewGameForm";
 import Question from "../components/Question/Question";
 import Results from "../components/Results";
 
@@ -12,11 +12,7 @@ const Routes = () => {
       <Router>
         <Nav />
         <Switch>
-          <Route
-            exact
-            path="/game"
-            render={(props) => <StartGame {...props} />}
-          />
+          <Route exact path="/game" render={() => <NewGameForm />} />
           <Route
             exact
             path="/game/:game_id/question/:order"
@@ -27,7 +23,7 @@ const Routes = () => {
             path="/game/:game_id/results"
             render={(props) => <Results {...props} />}
           />
-          <Route path="/" render={(props) => <Home {...props} />} />
+          <Route exact path="/" render={() => <Home />} />
         </Switch>
       </Router>
     </div>

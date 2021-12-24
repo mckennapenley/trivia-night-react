@@ -3,7 +3,7 @@ import { API_ROOT } from "../../apiRoot";
 import axios from "axios";
 import he from "he";
 import { Link } from "react-router-dom";
-import Teams from "./Teams";
+import Team from "./Team";
 
 const Question = (props) => {
   const [questionOrder, setQuestionOrder] = useState(
@@ -12,7 +12,6 @@ const Question = (props) => {
   const [prompt, setPrompt] = useState();
   const [answer, setAnswer] = useState();
   const [teams, setTeams] = useState([]);
-  const [game, setGame] = useState({});
   const [clearAnswerSelections, setClearAnswerSelections] = useState(false);
   const nextQuestionOrder = questionOrder + 1;
 
@@ -28,7 +27,6 @@ const Question = (props) => {
   useEffect(() => {
     axios.get(`${API_ROOT}/api/games/${game_id}/teams`).then((response) => {
       setTeams(response.data.teams);
-      setGame(response.data.game);
       setQuestionQuantity(response.data.game.question_quantity);
     });
   }, []);
@@ -44,7 +42,7 @@ const Question = (props) => {
         setAnswer(answer);
         setClearAnswerSelections(false);
       });
-  }, [game_id, questionOrder]);
+  }, [questionOrder]);
 
   // Handles case where user arrives at last question url, it will check to use endgame on render
   useEffect(() => {
@@ -93,7 +91,7 @@ const Question = (props) => {
           {teams.map((team) => {
             return (
               <>
-                <Teams
+                <Team
                   team={team}
                   handleCorrectResponse={handleCorrectResponse}
                   handleIncorrectResponse={handleIncorrectResponse}
@@ -120,7 +118,6 @@ const Question = (props) => {
           <div className="align-self-end" id="next">
             {displayEndGame ? (
               <Link
-                onClick={handleClick}
                 to={`/game/${game_id}/results`}
                 className="btn me-3 me-md-5"
                 id="end-game-btn"

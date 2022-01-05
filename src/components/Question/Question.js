@@ -13,7 +13,6 @@ const Question = (props) => {
   const [answer, setAnswer] = useState();
   const [teams, setTeams] = useState([]);
   const [clearAnswerSelections, setClearAnswerSelections] = useState(false);
-  const nextQuestionOrder = questionOrder + 1;
 
   const [displayEndGame, setDisplayEndGame] = useState(false);
   const [questionQuantity, setQuestionQuantity] = useState();
@@ -127,7 +126,7 @@ const Question = (props) => {
             ) : (
               <Link
                 onClick={handleClick}
-                to={`/game/${game_id}/question/${nextQuestionOrder}`}
+                to={`/game/${game_id}/question/${questionOrder + 1}`}
                 className="btn me-3 me-md-5"
                 id="next-question-btn"
               >
